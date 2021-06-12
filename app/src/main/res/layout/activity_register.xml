@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".RegisterActivity">
+
+    <include
+        android:id="@+id/progressBar"
+        layout="@layout/custom_progressbar"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="40sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="75dp"
+            app:cardPreventCornerOverlap="false">
+
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="pickImage"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_chatupnow"
+            tools:ignore="VectorDrawableCompat" />
+    </androidx.cardview.widget.CardView>
+
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_person_input"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/custom_person_input"
+            android:hint="UserName"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_email_input"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/custom_email_input"
+            android:hint="UserEmail"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_pass_input"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/custom_pass_input"
+            android:hint="UserPassword"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray" />
+
+
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_pass_input"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/custom_pass_input"
+            android:hint="Confirm Password"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/white"
+            android:onClick="btnSignupClick"
+            android:text="Sign-Up"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+</LinearLayout>

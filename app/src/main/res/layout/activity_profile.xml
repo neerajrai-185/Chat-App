@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+     <include
+        android:id="@+id/progressBar"
+        layout="@layout/custom_progressbar"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Profile"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_margin="4dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="75dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="changeImage"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_chatupnow"/>
+    </androidx.cardview.widget.CardView>
+
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="UserName"
+        android:layout_margin="4dp"
+        android:paddingStart="5dp"
+        android:drawablePadding="7dp"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_margin="4dp"
+        android:paddingStart="5dp"
+        android:drawablePadding="7dp"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:paddingLeft="10dp"
+        android:enabled="false"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        />
+
+
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Save Profile"
+        android:onClick="btnSaveClick"
+        android:background="@android:color/holo_red_dark"
+        android:textColorHint="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp">
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Change Pssword"
+        android:onClick="btnChangePasswordClick"
+        android:background="@android:color/holo_red_dark"
+        android:textColorHint="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp">
+    </Button>
+
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Logout"
+        android:onClick="btnLogoutClick"
+        android:background="@android:color/holo_red_dark"
+        android:textColorHint="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp">
+    </Button>
+    </LinearLayout>
+</LinearLayout>

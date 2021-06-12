@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".LoginActivity">
+
+
+    <include
+        android:id="@+id/progressBar"
+        layout="@layout/custom_progressbar"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:text="Sign In"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="75dp"
+            app:cardPreventCornerOverlap="false">
+
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_chatupnow"
+                tools:ignore="VectorDrawableCompat" />
+        </androidx.cardview.widget.CardView>
+
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_email_input"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/custom_email_input"
+            android:hint="UserEmail"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_pass_input"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/custom_pass_input"
+            android:hint="UserPassword"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray" />
+
+
+        <CheckBox
+            android:id="@+id/login_checkbox_etn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:buttonTint="@android:color/white"
+            android:gravity="center"
+            android:text="Show Password"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:onClick="tvResetPasswordClick"
+            android:text="Reset Password"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/white"
+            android:onClick="btnLoginClick"
+            android:text="Login"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/white"
+            android:onClick="tvSignupClick"
+            android:text="Sign-up Now!"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Don't have account SignUp"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
+</LinearLayout>
