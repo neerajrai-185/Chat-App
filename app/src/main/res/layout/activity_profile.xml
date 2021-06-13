@@ -42,7 +42,7 @@
             android:clickable="true"
             android:onClick="changeImage"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_chatupnow"/>
+            android:src="@drawable/iv_profile"/>
     </androidx.cardview.widget.CardView>
 
 

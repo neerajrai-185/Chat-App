@@ -135,14 +135,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void updateNameAndPhoto()
     {
-        //File Name is jpg and image your will be.
+
         String strFileName = firebaseUser.getUid() + ".jpg";
-        //"Images" see in firebase has been created.
         StorageReference fileRef = fileStorage.child("images/"+strFileName);
 
         viewProgressBar.setVisibility(View.VISIBLE);
 
-        //Here we are passing the locacal fileUri inside the putFile method.
         fileRef.putFile(localFileUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -216,13 +214,11 @@ public class RegisterActivity extends AppCompatActivity {
     public void updateOnlyName()
     {
         viewProgressBar.setVisibility(View.VISIBLE);
-        // UserProfileChangeRequest is Class
         UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
                 .setDisplayName(editTextName.getText().toString().trim())
                 .build();
 
 
-        //Here, i am passing the object to  UserProfileChangeRequest class
         firebaseUser.updateProfile(request).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -230,11 +226,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if (task.isSuccessful())
                 {
 
-                    //Here i am getting to the user id who have authenticated with the help of getUid() method.
                     String userID = firebaseUser.getUid();
 
 
-                    //Here i am getting to the USERS parent class refernce to the dataReference
                     databaseReference = FirebaseDatabase.getInstance().getReference().child(NodeNames.USERS);
                     HashMap<String,String> hashMap = new HashMap<>();
                     hashMap.put(NodeNames.NAME,editTextName.getText().toString().trim());
@@ -247,7 +241,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                     viewProgressBar.setVisibility(View.VISIBLE);
 
-                    //Here, we will store details of the HashMap It will be stored to the subclass of the parenct class.
                     databaseReference.child(userID).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
 
 
@@ -327,8 +320,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if (task.isSuccessful()) {
 
-                        //Here, we are getting firebase authenticated details who have successfully loged.
-                        // and this firebaseUser variable is used in the  above code to get user ID.
                         firebaseUser = firebaseAuth.getCurrentUser();
 
                         if (localFileUri != null)

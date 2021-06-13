@@ -83,7 +83,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                     }
                     else
                     {
-                        textViewMessage.setText(getString(R.string.email_sent_failed, task.getException()));//important
+                        textViewMessage.setText(getString(R.string.email_sent_failed, task.getException()));
                         buttonRetry.setText(R.string.retry);
 
                         buttonRetry.setOnClickListener(new View.OnClickListener() {

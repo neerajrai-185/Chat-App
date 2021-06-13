@@ -66,21 +66,18 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-        //If Fire Base is not equal to null
-        // then display the name and email and photo in update profile.
         if (firebaseUser!=null)
         {
             editTextName.setText(firebaseUser.getDisplayName());
             editTextEmail.setText(firebaseUser.getEmail());
 
-            //IF serverFileUri is not equal to the null then load new image .
             serverFileUri=firebaseUser.getPhotoUrl();
             if (serverFileUri!=null)
             {
                 Glide.with(this)
                         .load(serverFileUri)
-                        .placeholder(R.drawable.ic_chatupnow)
-                        .error(R.drawable.ic_chatupnow)
+                        .placeholder(R.drawable.iv_profile)
+                        .error(R.drawable.iv_profile)
                         .into(imageViewProfile);
             }
         }
@@ -106,9 +103,9 @@ public class ProfileActivity extends AppCompatActivity {
         }
         else{
             if(localFileUri!=null)
-                updateNameAndPhoto(); //calling inside the java code
+                updateNameAndPhoto();
             else
-                updateOnlyName();  //calling inside the java code
+                updateOnlyName();
         }
     }
 
@@ -119,7 +116,7 @@ public class ProfileActivity extends AppCompatActivity {
     {
         if(serverFileUri==null)
         {
-            pickImage(); ///calling inside the java code
+            pickImage();
         }
 
         else
@@ -140,7 +137,6 @@ public class ProfileActivity extends AppCompatActivity {
                     {
                         removePhoto();
                     }
-                    //Why we are returning false here !!!
                     return false;
                 }
             });
@@ -213,7 +209,7 @@ public class ProfileActivity extends AppCompatActivity {
         viewProgressBar.setVisibility(View.VISIBLE);
         UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
                 .setDisplayName(editTextName.getText().toString().trim())
-                .setPhotoUri(null) //Deleting a photo with the help of "null" which has already added
+                .setPhotoUri(null)
                 .build();
 
 
@@ -224,14 +220,13 @@ public class ProfileActivity extends AppCompatActivity {
                 viewProgressBar.setVisibility(View.GONE);
                 if (task.isSuccessful())
                 {
-                    imageViewProfile.setImageResource(R.drawable.ic_chatupnow);
+                    imageViewProfile.setImageResource(R.drawable.iv_profile);
                     String userID = firebaseUser.getUid();
                     databaseReference = FirebaseDatabase.getInstance().getReference().child(NodeNames.USERS);
 
                     HashMap<String,String> hashMap = new HashMap<>();
                     hashMap.put(NodeNames.PHOTO,"");
 
-                    //This code has litile diferent to the registration
 
                     databaseReference.child(userID).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
