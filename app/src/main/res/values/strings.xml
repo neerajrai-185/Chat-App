@@ -8,4 +8,6 @@
     <string name="close">Close</string>
     <string name="retry">Retry</string>
     <string name="reset_password">Reset Password</string>
+    <string name="no_internet">Check Internet Connection</string>
+
 </resources>

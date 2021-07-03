@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.chatnow.Common.Util;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -50,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
         }
         else
         {
+            if (Util.connectionAvailable(this))
+            {
             viewProgressBar.setVisibility(View.VISIBLE);
             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -69,8 +72,13 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
             });
-
         }
+            else
+            {
+                startActivity(new Intent(LoginActivity.this, MessageActivity.class));
+            }
+        }
+
     }
 
 

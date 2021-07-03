@@ -14,8 +14,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
-        app:srcCompat="@drawable/ic_request"
-        tools:ignore="VectorDrawableCompat" />
+        app:srcCompat="@drawable/ic_request" />
 
 
     <TextView
@@ -29,5 +28,6 @@
         android:text="Request"
         android:textColor="@android:color/white"
         android:textSize="13sp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold">
+    </TextView>
 </LinearLayout>
