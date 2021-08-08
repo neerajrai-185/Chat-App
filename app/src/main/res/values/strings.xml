@@ -9,5 +9,6 @@
     <string name="retry">Retry</string>
     <string name="reset_password">Reset Password</string>
     <string name="no_internet">Check Internet Connection</string>
+    <string name="failed_to_fetch_chat_list">Failed to fetch chat list</string>
 
 </resources>

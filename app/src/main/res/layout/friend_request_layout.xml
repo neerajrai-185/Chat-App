@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/ivProfile"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/iv_profile"/>
 
         <LinearLayout
@@ -29,6 +29,8 @@
                 android:id="@+id/tvFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/purple_700"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 tools:text="User Name" />
 
@@ -39,13 +41,14 @@
 
                 <Button
                     android:id="@+id/btnAcceptRequest"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/green"
                     android:text="Accept" />
 
                 <Button
                     android:id="@+id/btnDenyRequest"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:text="Deny"
@@ -55,7 +58,7 @@
                     android:id="@+id/pbDecision"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
                     android:visibility="gone"
                     tools:visibility="visible" />

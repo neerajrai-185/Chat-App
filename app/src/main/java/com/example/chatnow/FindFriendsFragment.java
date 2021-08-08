@@ -100,7 +100,7 @@ public class FindFriendsFragment extends Fragment {
                     if (ds.child(NodeNames.NAME).getValue()!=null)
                     {
                        final String fullName = ds.child(NodeNames.NAME).getValue().toString();
-                        final String photoName = ds.child(NodeNames.PHOTO).getValue()!=null? ds.child(NodeNames.PHOTO).getValue().toString():"";
+                        final String photoName = ds.child(NodeNames.PHOTO).getValue()!=null? ds.child(NodeNames.PHOTO).getValue().toString():"";//Here, I have used ternary Operator.
 
 
 
