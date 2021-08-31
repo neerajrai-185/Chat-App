@@ -1,7 +1,9 @@
 package com.example.chatnow;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.chatnow.Common.Constants;
+import com.example.chatnow.Common.Extras;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -43,6 +46,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatLi
 
         holder.tvFullName.setText(chatListModel.getUserName());
 
+
         StorageReference fileRef = FirebaseStorage.getInstance().getReference().child(Constants.IMAGE_FOLDER + "/" + chatListModel.getPhotoName());
         fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -53,6 +57,35 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatLi
                         .error(R.drawable.iv_profile)
                         .into(holder.ivProfile);
 
+            }
+        });
+
+
+        /*
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getInstance().getReferenceFromUrl("gs://chatnow-ead65.appspot.com");
+        StorageReference mountainsRef = storageRef.child(chatListModel.getPhotoName());
+        mountainsRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+
+                Log.d("TAG", String.valueOf(uri));
+                Glide.with(context)
+                        .load(uri)
+                        .placeholder(R.drawable.iv_profile)
+                        .error(R.drawable.iv_profile)
+                        .into(holder.ivProfile);
+            }
+        });
+*/
+
+
+        holder.llChatList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ChatActivity.class);
+                intent.putExtra(Extras.USER_KEY, chatListModel.getUserId());
+                context.startActivity(intent);
             }
         });
 
@@ -76,7 +109,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatLi
             tvLastMessage = itemView.findViewById(R.id.tvLastMessage);
             tvLastMessageTime = itemView.findViewById(R.id.tvLastMessageTime);
             tvUnreadCount= itemView.findViewById(R.id.tvUnreadCount);
-            ivProfile = itemView.findViewById(R.id.ivProfile);
+            ivProfile = itemView.findViewById(R.id.ivprofileivprofile);
         }
     }
 }

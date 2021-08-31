@@ -65,4 +65,3 @@ public class ChatListModel {
         this.lastMessageTime = lastMessageTime;
     }
 }
-//

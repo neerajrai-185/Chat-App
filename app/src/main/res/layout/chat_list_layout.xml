@@ -15,12 +15,12 @@
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivprofileivprofile"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            app:srcCompat="@drawable/iv_profile"
-            tools:ignore="VectorDrawableCompat">
-        </ImageView>
+            android:src="@drawable/iv_profile">
+        </com.mikhaellopez.circularimageview.CircularImageView>
 
 
         <LinearLayout
@@ -50,7 +50,7 @@
                 android:maxLines="1"
                 android:textColor="@color/purple_700"
                 android:textStyle="bold"
-                android:text="Last Message"
+                android:text=" "
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </LinearLayout>
 
@@ -61,19 +61,19 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="6dp">
 
             <TextView
                 android:id="@+id/tvUnreadCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/red"
+                android:background="@drawable/red_circle"
                 android:gravity="center"
-                android:padding="8dp"
-                android:text="3"
+                android:padding="4dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/white">
-            </TextView>
+                android:textColor="@android:color/white"
+                tools:text="3" />
 
             <TextView
                 android:id="@+id/tvLastMessageTime"

@@ -2,6 +2,7 @@
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,6 +70,25 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
                         .into(holder.ivProfile);
             }
         });
+
+        /*
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getInstance().getReferenceFromUrl("gs://chatnow-ead65.appspot.com");
+        StorageReference mountainsRef = storageRef.child(requestModel.getPhotoName());
+        mountainsRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+
+                Log.d("TAG", String.valueOf(uri));
+                Glide.with(context)
+                        .load(uri)
+                        .placeholder(R.drawable.iv_profile)
+                        .error(R.drawable.iv_profile)
+                        .into(holder.ivProfile);
+            }
+        });
+*/
 
         databaseReferenceFriendRequests = FirebaseDatabase.getInstance().getReference().child(NodeNames.FRIEND_REQUESTS);
         databaseReferenceChats = FirebaseDatabase.getInstance().getReference().child(NodeNames.CHATS);

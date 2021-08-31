@@ -97,11 +97,27 @@ public class FindFriendsFragment extends Fragment {
 
                     if (userId.equals(currentUser.getUid()))
                         continue;
+
+                    /*
                     if (ds.child(NodeNames.NAME).getValue()!=null)
                     {
                        final String fullName = ds.child(NodeNames.NAME).getValue().toString();
                         final String photoName = ds.child(NodeNames.PHOTO).getValue()!=null? ds.child(NodeNames.PHOTO).getValue().toString():"";//Here, I have used ternary Operator.
+                    */
 
+                 /*
+                    if(ds.child(NodeNames.NAME).getValue()!=null)
+                    {
+                        final String fullName = ds.child(NodeNames.NAME).getValue().toString();
+
+                        final String photoName ="images/"+userId+".jpg";
+                 */
+
+
+                    if (ds.child(NodeNames.NAME).getValue()!=null)
+                    {
+                       final String fullName = ds.child(NodeNames.NAME).getValue().toString();
+                       final String photoName = userId+".jpg";
 
 
                         databaseReferenceFriendRequests.child(userId).addListenerForSingleValueEvent(new ValueEventListener()

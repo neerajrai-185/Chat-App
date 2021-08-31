@@ -102,6 +102,7 @@ public class RequestsFragment extends Fragment {
                             databaseReferenceUsers.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    /*
                                     String userName = snapshot.child(NodeNames.NAME).getValue().toString();
 
                                     String photoName = "";
@@ -109,6 +110,24 @@ public class RequestsFragment extends Fragment {
                                     {
                                         photoName = snapshot.child(NodeNames.PHOTO).getValue().toString();
                                     }
+                                     */
+
+                                    /*
+                                    final String userName = snapshot.child(NodeNames.NAME).getValue().toString();
+                                    final String photoName= "images/" + userId + ".jpg";
+                                    */
+
+
+                                    final String userName = snapshot.child(NodeNames.NAME).getValue().toString();
+                                    final String photoName= userId + ".jpg";
+
+
+
+
+
+
+
+
 
                                     RequestModel requestModel = new RequestModel(userId,userName,photoName);
                                     requestModelList.add(requestModel);

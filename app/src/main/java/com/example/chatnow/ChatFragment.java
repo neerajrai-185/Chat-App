@@ -117,7 +117,7 @@ public class ChatFragment extends Fragment {
         tvEmptyChatList.setVisibility(View.VISIBLE);
     }
 
-        private  void updateList(DataSnapshot dataSnapshot, boolean isNew, String userId)
+        private  void updateList(DataSnapshot snapshot, boolean isNew, String userId)
         {
             progressBar.setVisibility(View.GONE);
             tvEmptyChatList.setVisibility(View.GONE);
@@ -132,11 +132,21 @@ public class ChatFragment extends Fragment {
             databaseReferenceUsers.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String fullName = dataSnapshot.child(NodeNames.NAME).getValue()!=null?
-                            dataSnapshot.child(NodeNames.NAME).getValue().toString():"";//Here, i have used ternary operator
+/*
+                    final String fullName = snapshot.child(NodeNames.NAME).getValue().toString();
+                    final String photoName= "images/" + userId + ".jpg";
+*/
 
-                    String photoName = dataSnapshot.child(NodeNames.PHOTO).getValue()!=null?
-                            dataSnapshot.child(NodeNames.PHOTO).getValue().toString():"";//Here, i have used ternary operator
+
+                    String fullName = snapshot.child(NodeNames.NAME).getValue()!=null?
+                            snapshot.child(NodeNames.NAME).getValue().toString():"";
+                    final String photoName= userId + ".jpg";
+
+                    /*
+                    String photoName = snapshot.child(NodeNames.PHOTO).getValue()!=null?
+                            snapshot.child(NodeNames.PHOTO).getValue().toString():"";
+
+                     */
 
                     ChatListModel chatListModel = new ChatListModel(userId,fullName,photoName,unreadCount,lastMessage,lastMessageTime);
                     chatListModelList.add(chatListModel);

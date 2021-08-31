@@ -3,6 +3,7 @@ package com.example.chatnow;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,7 @@ public class FindFriendsAdapter extends RecyclerView.Adapter<FindFriendsAdapter.
         FindFriendsModel friendsModel = findFriendsModelList.get(position);
         holder.textViewFullName.setText(friendsModel.getUserName());
 
+
         StorageReference fileRef = FirebaseStorage.getInstance().getReference().child(Constants.IMAGE_FOLDER + "/" + friendsModel.getPhotoName());
         fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -80,6 +82,24 @@ public class FindFriendsAdapter extends RecyclerView.Adapter<FindFriendsAdapter.
             }
         });
 
+
+/*
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getInstance().getReferenceFromUrl("gs://chatnow-ead65.appspot.com");
+        StorageReference mountainsRef = storageRef.child(friendsModel.getPhotoName());
+        mountainsRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+
+                Log.d("TAG", String.valueOf(uri));
+                Glide.with(context)
+                        .load(uri)
+                        .placeholder(R.drawable.iv_profile)
+                        .error(R.drawable.iv_profile)
+                        .into(holder.imageViewProfile);
+            }
+        });
+*/
 
 
 
